@@ -1,0 +1,28 @@
+
+items={}
+sum = 0
+prin={}
+for g in range(2):
+    serial = int(input("enter serial"))
+    name = input("enter name")
+    price = float(input("enter price"))
+    amount = int(input("enter amount"))
+    discount = input("enter false or true")
+    while discount != "true" and discount != "false":
+        discount = input("enter again true/false")
+    total = 0
+    if amount <= 5 and discount == "true":
+            total = price * amount * 0.95 + total
+
+    elif amount < 10 and 5 < amount and discount == "true":
+            total = price * amount * 0.9 + total
+
+    elif amount >= 10 and discount == "true":
+            total = price * amount * 0.85 + total
+    else:
+        total=price*amount
+    items[serial] = [name, total, price, amount]
+    prin[serial]=[ name, total]
+    sum = total + sum
+print("The sum of the shopping",sum,"\nthe list of items:")
+[print(key,value) for key,value in prin.items()]
