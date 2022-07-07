@@ -1,0 +1,18 @@
+
+dis=int(input("enter numb of users"))
+card=[]
+visa=0
+american=0
+for i in range(dis):
+    x=(input("enter type of card"))
+
+    while x !='visa' and x != 'american' and x !='other':
+        x = (input("try again"))
+    card.append(x)
+    if x=='visa':
+        visa+=1
+    elif x=='american':
+        american+=1
+
+print('visa card',visa/dis*100,'%')
+print('american card',american/dis*100,'%')
