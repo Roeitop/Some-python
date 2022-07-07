@@ -1,0 +1,19 @@
+import random
+Fruits = ['Apple', 'Banana', 'Orange']
+Vegetables = ['Tomato', 'Cucumber', 'Onion']
+fruitsandveg = Fruits+Vegetables
+q = random.sample(fruitsandveg,k=2)
+count = 0
+count2 = 0
+
+for i in q:
+    if i in Fruits:
+        count=count+1
+    else:
+        count2=count2+1
+    if count==2:
+        print("fruits rules")
+    elif count2 == 2:
+        print("veg rules")
+if count != 2 and count2 != 2:
+        print ("1 veg 1 fruit")
