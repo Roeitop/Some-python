@@ -1,0 +1,15 @@
+import pandas as pd
+import matplotlib as mat
+
+data=pd.read_csv('WorkOrders.csv',index_col='WO')
+
+data['totalcost']=(data['LbrHrs']*250)+data['PartsCost']
+data.sort_values('totalcost',ascending=False,inplace=True)
+data['totalcost'].head()
+
+data.iloc[data['LbrHrs'].argmax(),[1,4]]
+
+pd.pivot_table(data,index='OrderDay',columns='ServiceType',values='totalcost',aggfunc='mean')
+
+a=data.groupby('ServiceType')['Rush'].count()
+a.plot(kind='bar',title='numb of order by type')
